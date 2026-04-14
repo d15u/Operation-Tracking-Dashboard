@@ -1,5 +1,197 @@
-h1 {
-    text-align: center;
-    margin-top: 50px; 
-    color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* BACKGROUND */
+body {
+  height: 100vh;
+
+  background: linear-gradient(
+    to top,
+    #020617,   
+    #1c3883    
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD */
+.login-card {
+  width: 90%;
+  max-width: 400px;
+  background:#f1f5f9;
+  padding: 30px;
+  border-radius: 20px;
+
+  box-shadow: 
+    0 20px 60px rgba(78, 76, 196, 0.5),   /* سایه اصلی */
+    0 0 40px rgba(107, 125, 161, 0.15); /* glow آبی ملایم */
+
+  transition: 0.3s;
+}
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 80px rgba(0,0,0,0.6),
+    0 0 60px rgba(59,130,246,0.25);
+}
+
+/* TABS */
+.tabs {
+  position: relative;
+  display: flex;
+  background: #e5e7eb;
+  border-radius: 999px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: bold;
+}
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.tab:hover {
+  transform: scale(1.05);
+  color: #274aa8;
+}
+
+/* ACTIVE TAB */
+.tab.active {
+  color: rgb(241, 241, 222);
+}
+
+/* BLUE INDICATOR */
+.indicator {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background:#18386d;
+  border-radius: 999px;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+.tabs:hover .indicator {
+  background: #18397c;
+  transform: scale(1.03);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #18306d;
+}
+/* INPUTS */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* OPTIONS */
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 999px;
+  background: #163464;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-btn:hover {
+  background: #18397c;
+  transform: scale(1.02);
+}
+.login-btn {
+  box-shadow: 0 5px 15px rgba(59,130,246,0.3);
+}
+
+/* DIVIDER */
+.divider {
+  text-align: center;
+  margin: 10px 0;
+  color: gray;
+}
+
+/* SOCIAL */
+.social {
+  width: 100%;
+  padding: 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.social:hover {
+  transform: scale(1.03);
+}
+.social {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.apple {
+  background: white;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+
+.google {
+  background: white;
+  border: 1px solid #ccc;
+}
+.social img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.logo {
+  position: absolute;
+  top: 1px;
+  left: 20px;
+  width: 100px;   
+  opacity: 0.9;
+filter: brightness(0) invert(1)
+   drop-shadow(0 0 5px rgba(143,179,255,0.5));
+}
+.logo path {
+  fill: white;
 }
