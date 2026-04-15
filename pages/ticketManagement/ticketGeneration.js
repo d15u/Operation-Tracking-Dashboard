@@ -94,7 +94,8 @@ const generateDate = (startStr, endStr) => {
 
 
 
-const ticket = {
+export const createTicket = () => {
+    return {
     id: getRandomInt(1, 100),
     title: ticketTitles[getRandomInt(0, ticketTitles.length - 1)],
     status: statusStates[getRandomInt(0, statusStates.length - 1)],
@@ -108,7 +109,12 @@ const ticket = {
     customer: names[getRandomInt(0, names.length - 1)],
     source: sourceList[getRandomInt(0, sourceList - 1)],
     date: new Date().toISOString().split('T')[0]
+    };
 
+};
+
+export const generateTickets = (count) => {
+    return Array.from({ length: count}, () => createTicket())
 };
 
 const jsonString = JSON.stringify(ticket);
