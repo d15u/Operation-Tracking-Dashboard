@@ -1,7 +1,12 @@
 import { generateTickets } from "./ticketGeneration.js";
 
 const state = {
-  allTickets: generateTickets(30)
+  allTickets: generateTickets(30),
+  filters: {
+    search: "",
+    status: "",
+    priority: ""
+  }
 };
 
 function renderStatsCards(tickets) {
@@ -48,9 +53,53 @@ function renderTableRows(tickets) {
     .join("");
 }
 
-function renderAll() {
-  renderStatsCards(state.allTickets);
-  renderTableRows(state.allTickets);
+function getVisibleTickets() {
+  const searchTerm = state.filters.search.trim().toLowerCase();
+
+  return state.allTickets.filter((ticket) => {
+    const matchesSearch =
+      !searchTerm ||
+      String(ticket.id).includes(searchTerm) ||
+      ticket.title.toLowerCase().includes(searchTerm) ||
+      ticket.customer.toLowerCase().includes(searchTerm);
+
+    const matchesStatus =
+      !state.filters.status || ticket.status === state.filters.status;
+
+    const matchesPriority =
+      !state.filters.priority || String(ticket.priority) === state.filters.priority;
+
+    return matchesSearch && matchesStatus && matchesPriority;
+  });
 }
 
+function renderAll() {
+  renderStatsCards(state.allTickets);
+  renderTableRows(getVisibleTickets());
+}
+
+function bindFilterControls() {
+  const searchInput = document.getElementById("search-input");
+  const statusFilter = document.getElementById("status-filter");
+  const priorityFilter = document.getElementById("priority-filter");
+
+  if (!searchInput || !statusFilter || !priorityFilter) return;
+
+  searchInput.addEventListener("input", (event) => {
+    state.filters.search = event.target.value;
+    renderAll();
+  });
+
+  statusFilter.addEventListener("change", (event) => {
+    state.filters.status = event.target.value;
+    renderAll();
+  });
+
+  priorityFilter.addEventListener("change", (event) => {
+    state.filters.priority = event.target.value;
+    renderAll();
+  });
+}
+
+bindFilterControls();
 renderAll();
