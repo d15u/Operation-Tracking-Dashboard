@@ -2,7 +2,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const statusStates = ["closed", "resolved", "in progress", "canceled"];
+const statusStates = ["open", "in progress", "resolved", "closed", "canceled"];
 
 const ticketTitles = [
     "Critical: 5G Base Station Offline - Sector 4",
