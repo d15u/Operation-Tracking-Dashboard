@@ -73,7 +73,6 @@ export default function DashboardPage() {
           <div className="welcome-top">
             <div>
               <p className="welcome-header">Good Morning, {user?.name || 'User'} ({role})</p>
-              {/* <p className="welcome-sign">Signed in as {user?.name || 'User'} ({role})</p> */}
               <p className="welcome-sign">Nokia</p>
               <h1 className="welcome-title">Incident Management Console</h1>
               <p className="welcome-subtitle">A cleaner enterprise-style dashboard for monitoring incidents, filtering operational queues, and reviewing ticket ownership in one place.</p>
